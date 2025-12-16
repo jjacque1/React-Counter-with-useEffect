@@ -86,6 +86,43 @@ export default function Counter() {
     };
   }, [count]);
 
+  //=============KEYBOARD EVENT LISTENERS===========
+
+  useEffect(() => {
+  function handleKeyDown(event: KeyboardEvent) {
+    if (event.key === "ArrowUp") {
+      setCount((previousCountValue) => {
+        const newCountValue = previousCountValue + step;
+
+        setHistory((previousHistoryValues) => {
+          return [...previousHistoryValues, newCountValue];
+        });
+
+        return newCountValue;
+      });
+    }
+
+    if (event.key === "ArrowDown") {
+      setCount((previousCountValue) => {
+        const newCountValue = previousCountValue - step;
+
+        setHistory((previousHistoryValues) => {
+          return [...previousHistoryValues, newCountValue];
+        });
+
+        return newCountValue;
+      });
+    }
+  }
+
+  document.addEventListener("keydown", handleKeyDown);
+
+  return () => {
+    document.removeEventListener("keydown", handleKeyDown);
+  };
+}, [step]);
+
+
   //==============RETURN UI====================
 
   return (
