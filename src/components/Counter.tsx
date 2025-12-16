@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Counter() {
   const [count, setCount] = useState<number>(0);
@@ -6,7 +6,11 @@ export default function Counter() {
   const [history, setHistory] = useState<number[]>([0]);
 
 
-//==============INCREMENT COUNT AND UPDATE HISTORY===================
+//========LOCAL STORAGE KEY==========
+
+  const StorageKey = "savedCountHistory";
+
+//=========INCREMENT COUNT AND UPDATE HISTORY========
 
 
   function incrementCount() {
@@ -22,7 +26,7 @@ export default function Counter() {
   }
 
 
-//==============DECREMENT COUNT AND UPDATE HISTORY===================
+//==========DECREMENT COUNT AND UPDATE HISTORY==========
 
 
   function decrementCount() {
@@ -38,7 +42,7 @@ export default function Counter() {
   }
 
 
-//==============RESET COUNT AND RESET HISTORY========================
+//=========RESET COUNT AND RESET HISTORY=========
 
 
   function resetCounter() {
@@ -60,7 +64,21 @@ export default function Counter() {
       setStep(newStepValue);
     }
   }
+//=============LOCAL STORAGE=================
 
+useEffect(() => {
+    const savedCountString = localStorage.getItem(StorageKey);
+
+    if(savedCountString !== null) {
+        const saveCountNumber = Number(savedCountString);
+
+        if(!Number.isNaN(saveCountNumber)) {
+            setCount(saveCountNumber);
+
+            setHistory([saveCountNumber])
+        }
+    }
+}, []); 
 
 //==============RETURN UI====================
 
