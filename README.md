@@ -6,6 +6,25 @@ React Advanced Counter (Hooks, Effects, Local Storage)
 
 ![alt text](counterAppScreenShot.png)
 
+
+## How to Use App
+
+1. Start the development server and open the app in your browser.
+
+2. Use the Increment button to increase the counter value.
+
+3. Use the Decrement button to decrease the counter value.
+
+4. Adjust the Step Value input to control how much the counter increases or decreases.
+
+5. Press the ArrowUp key on your keyboard to increment the counter.
+
+6. Press the ArrowDown key on your keyboard to decrement the counter.
+
+7. Click the Reset button to reset the counter and clear the history.
+
+8. Refresh the page to confirm the counter value persists using localStorage.
+
 ## The challenge
 
 This project is a React + TypeScript application that builds an advanced counter using React Hooks. The application supports incrementing and decrementing by a configurable step value, tracks count history, responds to keyboard events, persists state using localStorage, and properly manages side effects and cleanup using useEffect.
