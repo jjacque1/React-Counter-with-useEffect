@@ -8,6 +8,7 @@
 
 button {
   margin: 8px;
+  background-color: #ddd;
 }
 
 .btn-red {
@@ -15,12 +16,23 @@ button {
   color: white;
 }
 
+label {
+  font-size: 24px;
+}
+
 input {
   padding: 8px;
   margin-top: 12px;
+  font-size: 24px;
+  width: 48px;
+
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border: 2px solid #ddd;
   padding: 12px;
   border-radius: 10px;

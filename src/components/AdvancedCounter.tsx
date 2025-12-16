@@ -138,7 +138,7 @@ export default function Counter() {
         </button>
       </div>
       <div>
-        <label htmlFor="step">Step Value: </label>
+        <label>Step Value: </label>
         <input type="number" min={1} value={step} onChange={handleStep} />
       </div>
       <h3>Count History:</h3>
